@@ -162,4 +162,5 @@ int main()
 	
 	_getch();
 	
-	return 
+	return 0;
+}
