@@ -1,0 +1,125 @@
+//Problem 1 (Sergio,Mamuyac,Diaz)
+//Pinding the roots problem 
+
+//declare the variables needed for the program
+#include <iostream>
+#include <conio.h>
+#include <cmath>
+#include <stdlib.h>
+
+using namespace std; 
+
+//function for exit when input is error
+void exit()
+{
+	exit(); 
+}
+
+//function for V formula
+double formulaV()
+{
+	int v,c,u,b;
+	long double condition;
+	condition = (b*b)-(4*c);
+	
+	v = (-b) - sqrt(condition) / 2;
+	
+}
+
+//function for U formula
+ double formulaU()
+{
+	int v,c,u,b,real,imaginary;
+	double condition;
+	condition = (b*b)-(4*c);
+	
+	u = (-b) + sqrt(condition) / 2; 
+	
+}
+
+//main function
+int main()
+{
+	//declare needed variables
+	int v, c, u, b; 
+	int condition,real,imaginary;
+	
+	//introduction and starting input
+	cout << "enter value of b: "; cin >> b; 
+	cout << "enter value of c: "; cin >> c;
+	
+	//formulas used and new variables for easy input in the code 
+	condition = (b*b)-(4*c);
+	real = -b / 2;
+	imaginary = sqrt(-condition)/2;
+	
+	//Condition 1 where roots are complex numbers and polynomial is not factorable
+	if (condition < 0 ) 
+	{
+		//input of function
+		formulaV();
+		formulaU();
+		
+		// output
+		cout << "the roots are complex numbers " << endl;
+		cout <<" (b^2)-4c = " <<condition << endl;
+		cout << "U = " << real << "+" << imaginary << "i" << endl;
+		cout << "V = " << real << "-" << imaginary << "i" << endl;
+		cout << "Not Factorable" << endl;
+		
+	}
+	 
+	// condition 2 where condition is greater than 0 but still have to check for perfect square
+	else if (condition > 0 )
+	{
+		//variable needed and function inserted
+		double compare = (sqrt(condition));
+		formulaV();
+		formulaU();
+		
+		//checking if its a perfect square
+		if (compare - floor (compare) == 0 )
+		{
+		//output if perfect square
+		cout << "V =  " << v << endl; 
+		cout << "U =  "	<< u << endl;
+		cout << " (b^2)-4c = " <<condition << endl;
+		cout << " the roots are integers ";
+		cout << "The Polynomial is Factorable";
+		}
+		
+		//if not perfect square output
+		else 
+		{
+		cout << "V =  " << v << endl; 
+		cout << "U =  "	<< u << endl;
+		cout <<" (b^2)-4c = " <<condition << endl;
+		cout << " the roots are not integers " << endl;
+		cout << "The Polynomial is Factorable" << endl; 
+			
+		}
+		
+	}
+		
+		// if the polynomial has the same roots 
+		else if (condition == 0)
+		{
+		cout << "Roots are real and same." << endl;
+		u = (-b + sqrt(condition)) / 2;
+		cout << "u and v = +/- " << u << endl;
+		}
+		
+		//if have invalid input
+		else 
+		{
+			cout << "ERROR!!!" << endl; 
+			exit();
+		}
+	
+	
+	_getch();
+	
+	return 0; 
+}
+
+
